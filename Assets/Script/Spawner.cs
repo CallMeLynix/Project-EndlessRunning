@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public float spawnRangeX = 10f;
     public float spawnPosZ = 10f;
 
+    public int limit ;
     private float spawnTimer = 0f;
 
     void Update()
@@ -19,10 +20,15 @@ public class Spawner : MonoBehaviour
             SpawnEnemy();
             spawnTimer = 0f;
         }
+        // if(limit > 0){
+        //     SpawnEnemy();
+        //     limit-1;
+        // }
     }    void SpawnEnemy()
     {
         float spawnPosX = Random.Range(-spawnRangeX, spawnRangeX);
         Vector3 spawnPosition = new Vector3(spawnPosX, 0f, spawnPosZ);
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
     }
 }
